@@ -8,13 +8,10 @@ export default async function handler(req, res) {
   const covertedNumberOfArticles = parseInt(numberOfArticles);
   const articles = await prisma.articles.findMany({
     take: covertedNumberOfArticles,
-    // skip: req.query.page * req.query.limit,
     orderBy: {
       createdAt: "desc",
     },
   });
   console.log(articles);
   res.status(200).json(articles);
-
-  // console.log(articles);
 }
