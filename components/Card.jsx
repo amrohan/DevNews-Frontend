@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/Link";
 
 export default function Card({ title, author, createdAt, url, image }) {
   const FeedTitle = title.slice(0, 80);
