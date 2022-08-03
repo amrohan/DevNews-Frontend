@@ -33,8 +33,8 @@ export default function News() {
   }, [data]);
 
   return (
-    <div className="h-full w-full bg-zinc-900 text-white ">
-      <section className="pt-6 gap-6 gap-x-6 gap-y-8 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl ">
+    <div className="h-full w-full dark:bg-zinc-900 dark:text-white ">
+      <section className="pt-6 gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl ">
         {/* if data is not loaded then show skeletons else show Card */}
 
         {feed && feed?.map((article) => <Card key={article.id} {...article} />)}
@@ -42,14 +42,12 @@ export default function News() {
 
       {/* showing skeleton if data is loading */}
       {!data && (
-        <div className="h-full mx-w-4xl bg-zinc-900 text-white">
-          <section className="pt-6 gap-6 grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 mx-20 lg:mx-auto max-w-5xl">
-            {/* map over num and show skeleton  */}
-            {Array.from({ length: num }).map((_, i) => (
-              <SkeletonCard key={i} />
-            ))}
-          </section>
-        </div>
+        <section className="grid w-80 md:w-full md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl gap-6">
+          {/* map over num and show skeleton  */}
+          {Array.from({ length: num }).map((_, i) => (
+            <SkeletonCard key={i} />
+          ))}
+        </section>
       )}
       {/* add scroll on top button */}
       <div className="fixed top-0 right-0 mr-6 mb-6">
