@@ -34,7 +34,7 @@ export default function News() {
 
   return (
     <div className="h-full w-full dark:bg-zinc-900 dark:text-white ">
-      <section className="pt-6 gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl ">
+      <section className="pt-6 gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl pb-6 ">
         {/* if data is not loaded then show skeletons else show Card */}
 
         {feed && feed?.map((article) => <Card key={article.id} {...article} />)}
