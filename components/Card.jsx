@@ -22,7 +22,9 @@ export default function Card({ title, author, createdAt, url, image }) {
             />
           </div>
           <div className="bg-white dark:bg-zinc-800 w-full p-4">
-            <p className="text-indigo-500 text-md font-medium">Dev News</p>
+            <p className="text-indigo-500 text-md font-medium font-serif">
+              Dev News
+            </p>
             <p className="hover:text-blue-500 text-gray-800 h-28 dark:text-white text-lg font-medium ">
               {FeedTitle}
             </p>

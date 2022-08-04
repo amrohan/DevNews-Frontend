@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useSWR from "swr";
 import SkeletonCard from "../components/SkeletonCard";
 import Card from "../components/Card";
+import NavBar from "../components/NavBar";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -32,9 +33,46 @@ export default function News() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [data]);
 
+  // creating a state to show good morning or good evening
+  const [time, setTime] = useState(new Date().getHours());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date().getHours());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [time]);
+
+  const greeting = () => {
+    if (time < 12) {
+      return "Good Morning ✨";
+    } else if (time < 18) {
+      return "Good Afternoon ✨";
+    } else {
+      return "Good Evening ✨";
+    }
+  };
+  //  show greeting for 5 seconds only then hide it
+  const [show, setShow] = useState(true);
+  useEffect(() => {
+    const interval = setTimeout(() => {
+      setShow(false);
+    }, 5000);
+    return () => clearTimeout(interval);
+  }, [show]);
+
   return (
-    <div className="h-full w-full dark:bg-zinc-900 dark:text-white ">
-      <section className="pt-6 gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl pb-6 ">
+    <div className="h-full w-full dark:bg-zinc-900 dark:text-white">
+      <div className=" pt-20 h-full w-full mb-4 max-w-5xl mx-auto md:w-full">
+        <h1 className="text-xl font-semibold w-full pl-8 md:pl-0">
+          Latest News
+        </h1>
+        {show && (
+          <span className="animate-pulse pt-1 font-mono pl-11 md:pl-2 self-center text-md font-semibold whitespace-nowrap dark:text-white">
+            {greeting()}
+          </span>
+        )}
+      </div>
+      <section className="pt-6 gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
         {/* if data is not loaded then show skeletons else show Card */}
 
         {feed && feed?.map((article) => <Card key={article.id} {...article} />)}
@@ -60,13 +98,6 @@ export default function News() {
           👆
         </button>
       </div>
-      {/* <button
-        onClick={() => setPageIndex(pageIndex + 9)}
-        type="button"
-        class="text-white w-28 mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      >
-        Load More
-      </button> */}
     </div>
   );
 }

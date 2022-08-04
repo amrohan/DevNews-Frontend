@@ -12,6 +12,7 @@ export default async function handler(req, res) {
       createdAt: "desc",
     },
   });
-  console.log(articles);
+  // console.log(articles);
+  prisma.$disconnect();
   res.status(200).json(articles);
 }
