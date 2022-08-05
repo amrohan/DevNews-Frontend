@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Skeleton() {
   return (
-    <div classaName="overflow-hidden shadow-lg rounded-lg max-h-90 max-w-80">
+    <div classaName="overflow-hidden shadow-lg rounded-lg bg-green-600">
       <div className="bg-gray-500 rounded-xl h-44 overflow-hidden animate-pulse mb-2"></div>
       <div className="h- p-3">
         <div className="flex flex-col gap-3">

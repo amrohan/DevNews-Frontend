@@ -2,11 +2,11 @@ import React from "react";
 import ImageBlur from "./ImageBlur";
 import Link from "next/link";
 
-export default function Card({ title, author, createdAt, url, image }) {
-  const FeedTitle = title.slice(0, 80);
+export default function Card({ art }) {
+  const FeedTitle = art.title.slice(0, 80);
   return (
     <div className="overflow-hidden shadow-lg rounded-lg max-h-90 w-80 cursor-pointer mx-auto">
-      <Link href={url} passHref>
+      <Link href={art.url} passHref>
         <a
           target="_blank"
           rel="noopener noreferrer"
@@ -15,7 +15,7 @@ export default function Card({ title, author, createdAt, url, image }) {
           <div className=" h-44 w-full overflow-hidden">
             <ImageBlur
               alt="blog photo"
-              src={image}
+              src={art.image}
               className="object-cover h-10 w-full"
               width={400}
               height={220}
@@ -35,19 +35,20 @@ export default function Card({ title, author, createdAt, url, image }) {
               <ImageBlur
                 alt="profil"
                 // genrate images with different urls
-                src={`https://picsum.photos/200/200?random=${Math.floor(
-                  Math.random() * 100
-                )}`}
+                // src={`https://picsum.photos/200/200?random=${Math.floor(
+                //   Math.random() * 100
+                // )}`}
+                src="/user.png"
                 className="mx-auto object-cover rounded-full h-10 w-10 "
                 width={40}
                 height={40}
               />
 
               <div className="flex flex-col justify-between ml-4 text-sm">
-                <p className="text-gray-800 dark:text-white">{author}</p>
+                <p className="text-gray-800 dark:text-white">{art.author}</p>
                 {/* convert createdAt to local string */}
                 <p className="text-gray-400 dark:text-gray-300">
-                  {new Date(createdAt).toLocaleString()}
+                  {new Date(art.createdAt).toLocaleString()}
                 </p>
               </div>
             </div>

@@ -1,30 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import useSWR from "swr";
 import SkeletonCard from "../components/SkeletonCard";
 import Card from "../components/Card";
-import NavBar from "../components/NavBar";
+import Loader from "../components/Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export default function News() {
   // setting up the state
-  const [pageIndex, setPageIndex] = useState(30);
-  const { data } = useSWR(`/api/feed?take=${pageIndex}`, fetcher);
-  // setting up the state of feed
+  const [skipPage, setSkipPage] = useState(0);
+
+  const { data, error } = useSWR(`/api/feed?take=10&skip=${skipPage}`, fetcher);
+
   const [feed, setFeed] = useState([]);
 
-  //
   useEffect(() => {
     if (data) {
-      setFeed([...data]);
+      setFeed((prev) => [...prev, ...data]);
     }
   }, [data]);
 
-  const num = 9;
-
   const onScroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      setPageIndex(pageIndex + num);
+      // skiping the number of articles that are already in the feed state
+      setSkipPage((prev) => prev + 10);
     }
   };
 
@@ -60,6 +59,13 @@ export default function News() {
     return () => clearTimeout(interval);
   }, [show]);
 
+  // useMemo to store previous state and compare it to the new state to see if it has changed or not if it has changed then render the new state
+  const news = useMemo(() => {
+    return feed.map((item) => {
+      return <Card key={item.id} art={item} />;
+    });
+  }, [feed]);
+
   return (
     <div className="h-full w-full dark:bg-zinc-900 dark:text-white">
       <div className=" pt-20 h-full w-full mb-4 max-w-5xl mx-auto md:w-full">
@@ -72,21 +78,21 @@ export default function News() {
           </span>
         )}
       </div>
-      <section className="pt-6 gap-6 grid md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
+      <article className="px-8 h-full pt-6 gap-6 grid md:px-0 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
         {/* if data is not loaded then show skeletons else show Card */}
 
-        {feed && feed?.map((article) => <Card key={article.id} {...article} />)}
-      </section>
+        {news}
 
-      {/* showing skeleton if data is loading */}
-      {!data && (
-        <section className="grid w-80 md:w-full md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl gap-6">
-          {/* map over num and show skeleton  */}
-          {Array.from({ length: num }).map((_, i) => (
-            <SkeletonCard key={i} />
-          ))}
-        </section>
-      )}
+        {!data && (
+          <>
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+          </>
+        )}
+      </article>
+
       {/* add scroll on top button */}
       <div className="fixed top-0 right-0 mr-6 mb-6">
         <button

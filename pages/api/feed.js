@@ -2,11 +2,16 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-  const { take } = req.query;
+  const { take, skip } = req.query;
   const numberOfArticles = take || 2;
-  await prisma.$connect();
   const covertedNumberOfArticles = parseInt(numberOfArticles);
+
+  const skipArticles = skip || 0;
+  const convertedSkipArticles = parseInt(skipArticles);
+
+  await prisma.$connect();
   const articles = await prisma.articles.findMany({
+    skip: convertedSkipArticles,
     take: covertedNumberOfArticles,
     orderBy: {
       createdAt: "desc",
