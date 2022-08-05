@@ -78,7 +78,7 @@ export default function News() {
           </span>
         )}
       </div>
-      <article className="px-8 h-full pt-6 gap-6 grid md:px-0 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
+      <article className="h-full pt-6 gap-6 grid md:px-0 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
         {/* if data is not loaded then show skeletons else show Card */}
 
         {news}
