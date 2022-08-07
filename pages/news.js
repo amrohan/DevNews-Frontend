@@ -68,7 +68,7 @@ export default function News() {
 
   return (
     <div className="h-full w-full dark:bg-zinc-900 dark:text-white">
-      <div className=" pt-20 h-full w-full mb-4 max-w-5xl mx-auto md:w-full">
+      <div className=" pt-20 h-32 w-full mb-4 max-w-5xl mx-auto md:w-full">
         <h1 className="text-xl font-semibold w-full pl-8 md:pl-0">
           Latest News
         </h1>
@@ -78,7 +78,19 @@ export default function News() {
           </span>
         )}
       </div>
-      <article className="h-full pt-6 gap-6 grid md:px-0 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
+
+      {/* add scroll on top button */}
+      <div className="fixed z-30 top-0 right-0 mr-6 mb-6">
+        <button
+          className="dark:bg-white h-12 w-12 dark:text-white rounded-full fixed bottom-2 right-4 "
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
+          👆
+        </button>
+      </div>
+      <div className="min-h-full pt-6 gap-6 grid md:px-0 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
         {/* if data is not loaded then show skeletons else show Card */}
 
         {news}
@@ -89,20 +101,14 @@ export default function News() {
             <SkeletonCard />
             <SkeletonCard />
             <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
+            <SkeletonCard />
           </>
         )}
-      </article>
-
-      {/* add scroll on top button */}
-      <div className="fixed top-0 right-0 mr-6 mb-6">
-        <button
-          className="dark:bg-white h-12 w-12 dark:text-white rounded-full fixed bottom-2 right-4 "
-          onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-        >
-          👆
-        </button>
       </div>
     </div>
   );

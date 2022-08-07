@@ -4,15 +4,17 @@ import Link from "next/link";
 
 export default function Card({ art }) {
   const FeedTitle = art.title.slice(0, 80);
+  const authorName = art.author.slice(0, 20);
+
   return (
-    <div className="overflow-hidden shadow-lg rounded-lg max-h-90 w-80 cursor-pointer mx-auto">
+    <div className="relative dark:bg-zinc-800 shadow-lg rounded-xl h-96 w-80 cursor-pointer mx-auto">
       <Link href={art.url} passHref>
         <a
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full block h-90"
+          className="w-full block h-90 rounded-full"
         >
-          <div className=" h-44 w-full overflow-hidden">
+          <div className="h-44 w-full rounded-t-xl overflow-hidden">
             <ImageBlur
               alt="blog photo"
               src={art.image}
@@ -21,34 +23,23 @@ export default function Card({ art }) {
               height={220}
             />
           </div>
-          <div className="bg-white dark:bg-zinc-800 w-full p-4">
-            <p className="text-indigo-500 text-md font-medium font-serif">
-              Dev News
-            </p>
-            <p className="hover:text-blue-500 text-gray-800 h-28 dark:text-white text-lg font-medium ">
+          <div className="w-full p-4">
+            <p className="hover:text-blue-500 bg-white dark:bg-zinc-800 text-gray-800 h-28 dark:text-white text-lg font-medium ">
               {FeedTitle}
             </p>
             {/* <p className="text-gray-400 h-16 dark:text-gray-300 font-light text-md">
             {content}
           </p> */}
-            <div className="flex items-center ">
-              <ImageBlur
-                alt="profil"
-                // genrate images with different urls
-                // src={`https://picsum.photos/200/200?random=${Math.floor(
-                //   Math.random() * 100
-                // )}`}
-                src="/user.png"
-                className="mx-auto object-cover rounded-full h-10 w-10 "
-                width={40}
-                height={40}
-              />
-
+            <div className="flex items-center">
               <div className="flex flex-col justify-between ml-4 text-sm">
-                <p className="text-gray-800 dark:text-white">{art.author}</p>
+                <p className="text-gray-800 dark:text-white">{authorName}</p>
                 {/* convert createdAt to local string */}
-                <p className="text-gray-400 dark:text-gray-300">
-                  {new Date(art.createdAt).toLocaleString()}
+                <p className="text-gray-600 dark:text-gray-300">
+                  {new Date(art.createdAt).toLocaleString("en-US", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
                 </p>
               </div>
             </div>
