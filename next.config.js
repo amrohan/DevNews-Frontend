@@ -25,6 +25,7 @@ const nextConfig = {
       "css-tricks.com",
       "images.ctfassets.net",
       "www.wired.com",
+      "hackernoon.imgix.net",
       // random avatars
       "picsum.photos",
     ],
