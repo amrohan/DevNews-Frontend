@@ -80,7 +80,7 @@ export default function Home() {
           <div className="w-full xl:w-3/5 p-5 md:p-12 mx-auto overflow-hidden rounded-lg">
             <img
               className={cn(
-                "duration-700 ease-in-out",
+                "duration-700 ease-in-out rounded-xl",
                 blur ? "grayscale blur-lg" : "grayscale-0 blur-0"
               )}
               src="/per.gif"
