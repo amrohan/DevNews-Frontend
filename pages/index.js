@@ -1,8 +1,15 @@
 import Link from "next/link";
 import Head from "next/head";
-import ImageBlur from "../components/ImageBlur";
+import { useEffect, useState } from "react";
+import cn from "clsx";
 
 export default function Home() {
+  // setting state to blur gif on load for 3 seconds
+  const [blur, setBlur] = useState(true);
+  setTimeout(() => {
+    setBlur(false);
+  }, 300);
+
   return (
     <div className="h-full max-w-5xl mx-auto dark:bg-zinc-900 p-6">
       <Head>
@@ -70,10 +77,15 @@ export default function Home() {
           </div>
 
           {/* <!--Right Col--> */}
-          <div className="w-full xl:w-3/5 p-5 md:p-12 mx-auto">
-            <ImageBlur
-              className="rounded-xl"
-              src="/main.webp"
+          <div className="w-full xl:w-3/5 p-5 md:p-12 mx-auto overflow-hidden rounded-lg">
+            <img
+              className={cn(
+                "duration-700 ease-in-out",
+                blur
+                  ? "grayscale blur-lg scale-110"
+                  : "grayscale-0 blur-0 scale-100"
+              )}
+              src="/per.gif"
               width={500}
               height={350}
             />
