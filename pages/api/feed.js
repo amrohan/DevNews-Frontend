@@ -9,7 +9,6 @@ export default async function handler(req, res) {
   const skipArticles = skip || 0;
   const convertedSkipArticles = parseInt(skipArticles);
 
-  await prisma.$connect();
   const articles = await prisma.articles.findMany({
     skip: convertedSkipArticles,
     take: covertedNumberOfArticles,
@@ -17,7 +16,5 @@ export default async function handler(req, res) {
       createdAt: "desc",
     },
   });
-  // console.log(articles);
-  prisma.$disconnect();
   res.status(200).json(articles);
 }
