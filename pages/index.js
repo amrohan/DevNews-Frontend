@@ -81,9 +81,7 @@ export default function Home() {
             <img
               className={cn(
                 "duration-700 ease-in-out",
-                blur
-                  ? "grayscale blur-lg scale-110"
-                  : "grayscale-0 blur-0 scale-100"
+                blur ? "grayscale blur-lg" : "grayscale-0 blur-0"
               )}
               src="/per.gif"
               width={500}
