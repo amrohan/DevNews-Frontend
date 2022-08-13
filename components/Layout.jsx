@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 export default function Layout({ children }) {
@@ -8,6 +9,7 @@ export default function Layout({ children }) {
         <NavBar className="w-full" />
       </div>
       {children}
+      <Footer />
     </main>
   );
 }

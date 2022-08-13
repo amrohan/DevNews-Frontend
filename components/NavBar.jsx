@@ -1,22 +1,26 @@
 import React from "react";
-import ImageBlur from "./ImageBlur";
+// import ImageBlur from "./ImageBlur";
 import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <nav className=" max-w-5xl realative bg-white px-2 sm:px-4 py-2.5 dark:bg-zinc-900 fixed w-full z-20 border-b border-gray-200 dark:border-gray-600">
+    // make navbar Glassmorphism
+    <nav className=" max-w-5xl realative px-2 sm:px-4 py-2.5 fixed w-full z-20 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-140 ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link href="/">
           <a className="flex items-center">
-            <ImageBlur
+            {/* <ImageBlur
               src="/logo.svg"
               className="h-6 sm:h-9"
               width={24}
               height={24}
-              alt="Flowbite Logo"
-            />
-            <span className="ml-2 self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Dev News
+              alt="devnews Logo"
+            /> */}
+            <span className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-3xl">
+              Dev
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
+                News
+              </span>
             </span>
           </a>
         </Link>
@@ -25,7 +29,7 @@ export default function NavBar() {
             <a target="_blank">
               <button
                 type="button"
-                className="mt-1 md:mt-0 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="mt-1 md:mt-0 dark:text-white bg-transparent hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1.5 text-center mr-3 md:mr-0"
               >
                 Telegram Bot
               </button>
@@ -59,11 +63,11 @@ export default function NavBar() {
           </button>
         </div>
         <div
-          className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1 duration-700 ease-in-out md:duration-0"
+          className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1 "
           id="navbar-sticky"
         >
           <ul
-            className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            className="duration-700 ease-in-out md:duration-0 flex flex-col p-4 mt-4 rounded-lg border md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0"
             type="button"
             onClick={() => {
               const navbar = document.getElementById("navbar-sticky");
@@ -73,7 +77,7 @@ export default function NavBar() {
             <li>
               <Link href="/">
                 <a
-                  className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600"
                   aria-current="page"
                 >
                   Home
@@ -82,21 +86,21 @@ export default function NavBar() {
             </li>
             <li>
               <Link href="/news">
-                <a className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600">
                   News
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/rss">
-                <a className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600">
                   Rss
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600">
                   About
                 </a>
               </Link>
