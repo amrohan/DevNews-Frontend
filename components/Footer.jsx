@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
           <Link href="/">
-            <a href="/" className="flex items-center">
+            <a className="flex items-center">
               <ImageBlur
                 src="/logo.svg"
                 className="mr-3 h-8"
