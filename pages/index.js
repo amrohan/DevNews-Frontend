@@ -70,10 +70,10 @@ export default function Home() {
           </div>
 
           {/* <!--Right Col--> */}
-          <div className="w-full xl:w-3/5 p-12 mx-auto">
+          <div className="w-full xl:w-3/5 p-5 md:p-12 mx-auto">
             <ImageBlur
               className="rounded-xl"
-              src="/per.gif"
+              src="/main.webp"
               width={500}
               height={350}
             />
