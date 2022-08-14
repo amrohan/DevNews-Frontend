@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import cn from "clsx";
 
 export default function Home() {
@@ -49,7 +49,7 @@ export default function Home() {
       </Head>
       <section className="h-full">
         {/* <!--Main--> */}
-        <div className="pt-24 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+        <div className="pt-24 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
           {/* <!--Left Col--> */}
           <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
             <h1 className="my-4 text-3xl md:text-5xl dark:text-white opacity-75 font-bold leading-tight text-center md:text-left">
@@ -77,27 +77,25 @@ export default function Home() {
           </div>
 
           {/* <!--Right Col--> */}
-          <div className="w-full xl:w-3/5 p-5 md:p-12 mx-auto overflow-hidden rounded-lg">
+          <div className="w-full xl:w-3/5 p-5 md:p-12 overflow-hidden rounded-lg">
             <img
               className={cn(
-                "duration-700 ease-in-out rounded-xl",
+                "duration-700 ease-in-out rounded-xl w-full md:w-9/12 lg:w-full",
                 blur ? "grayscale blur-lg" : "grayscale-0 blur-0"
               )}
               src="/per.gif"
-              width={500}
-              height={350}
               alt="Homage page gif"
             />
           </div>
         </div>
       </section>
-      <section className="m-4 md:m-8 dark:bg-zinc-900 dark:text-gray-100">
-        <div className="container mx-auto p-4 my-5 space-y-2 text-center">
+      <section className="dark:bg-zinc-900 dark:text-gray-100">
+        <div className="mx-auto p-4 my-5 space-y-2 text-center">
           <h2 className="text-3xl md:text-4xl font-bold">
             Built To Save Time For Every Developer
           </h2>
         </div>
-        <div className="container mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div className="flex flex-col items-center p-4 text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +118,7 @@ export default function Home() {
             <svg
               className="w-8 h-8 dark:text-violet-400"
               xmlns="http://www.w3.org/2000/svg"
-              fillRrule="evenodd"
+              fillRule="evenodd"
               clipRule="evenodd"
               fill="currentColor"
             >
