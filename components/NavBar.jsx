@@ -29,7 +29,7 @@ export default function NavBar() {
             <a target="_blank">
               <button
                 type="button"
-                className="mt-1 md:mt-0 dark:text-white bg-transparent hover:bg-blue-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-1.5 text-center mr-3 md:mr-0"
+                className="mt-1 md:mt-0 px-2 py-1 text-violet-400"
               >
                 Telegram Bot
               </button>
@@ -95,13 +95,6 @@ export default function NavBar() {
               <Link href="/rss">
                 <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600">
                   Rss
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/about">
-                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600">
-                  About
                 </a>
               </Link>
             </li>
