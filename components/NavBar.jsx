@@ -21,7 +21,7 @@ export default function NavBar() {
             <a target="_blank">
               <button
                 type="button"
-                className="mt-1 md:mt-0 px-2 py-1 text-violet-400 hover:animate-ping hover:underline decoration-wavy underline-offset-4 "
+                className="mt-1 md:mt-0 px-2 py-1 text-violet-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4 "
               >
                 Telegram Bot
               </button>
@@ -59,7 +59,7 @@ export default function NavBar() {
           id="navbar-sticky"
         >
           <ul
-            className="duration-700 ease-in-out md:duration-0 flex flex-col p-4 mt-4 rounded-lg border md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0"
+            className="flex flex-col p-4 mt-4 rounded-lg text-center border md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 "
             type="button"
             onClick={() => {
               const navbar = document.getElementById("navbar-sticky");
