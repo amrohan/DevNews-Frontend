@@ -12,8 +12,7 @@ export default async function handler(req, res) {
       },
     });
     res.status(200).json({
-      message:
-        "I appreciate you sending this article in. It will soon be reviewed and added to the feed.😄",
+      message: "Succsess ✨",
     });
   } catch (error) {
     res.status(500).json({

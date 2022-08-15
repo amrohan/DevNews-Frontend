@@ -25,14 +25,38 @@ export default function SubmitUrl() {
     });
     const json = await Response.json();
     setLoading(false);
-    toast(json.message, {
-      icon: "👏",
-      style: {
-        borderRadius: "10px",
-        background: "#333",
-        color: "#fff",
-      },
-    });
+
+    // creating custom toast
+    toast.custom((t) => (
+      <div
+        className={`${
+          t.visible ? "animate-enter" : "animate-leave"
+        } max-w-md w-full dark:bg-zinc-800 shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+      >
+        <div className="flex-1 w-0 p-4">
+          <div className="flex items-start">
+            <div className="flex-shrink-0 pt-0.5">
+              <img className="h-16 w-16 rounded-full" src="/cat.gif" alt="" />
+            </div>
+            <div className="ml-3 flex-1">
+              <p className="text-sm font-medium dark:text-gray-300">Mr Cat</p>
+              <p className="mt-1 text-sm dark:text-gray-300">
+                I appreciate you sending this article in. It will soon be
+                reviewed and added to the feed ✨.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex">
+          <button
+            onClick={() => toast.dismiss(t.id)}
+            className="w-full border border-transparent rounded-none rounded-r-lg p-6 py-4 flex items-center justify-center text-sm font-medium dark:text-gray-300"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    ));
     formData.reset();
   };
 
@@ -87,12 +111,10 @@ export default function SubmitUrl() {
             <div className="space-y-2">
               <div>
                 <button
-                  // onClick={Notify}
                   type="submit"
                   className="w-full px-8 py-3 font-semibold rounded-md border bg-violet-400 dark:text-gray-900"
                 >
                   Submit
-                  {/* <span className="w-5 mt-[2px] h-5 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></span> */}
                 </button>
               </div>
             </div>
