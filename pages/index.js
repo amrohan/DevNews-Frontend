@@ -109,7 +109,7 @@ export default function Home() {
             <div className="space-y-1 leading-tight">
               <p>
                 {
-                  "Searching for content isn't a thing developers should do nowadays. daily.dev recommends tailor-made dev news so you canhave something interesting to read anytime."
+                  "Searching for content isn't a thing developers should do nowadays. DevNews recommends tailor-made dev news so you canhave something interesting to read anytime."
                 }
               </p>
             </div>
