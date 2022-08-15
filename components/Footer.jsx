@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import ImageBlur from "./ImageBlur";
 
 export default function Footer() {
   return (
@@ -9,14 +8,7 @@ export default function Footer() {
         <div className="mb-6 md:mb-0">
           <Link href="/">
             <a className="flex items-center">
-              <ImageBlur
-                src="/logo.svg"
-                className="mr-3 h-8"
-                alt="DevNews Logo"
-                width={24}
-                height={24}
-              />
-              <span className="ml-2 flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-2xl">
+              <span className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-2xl">
                 Dev
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
                   News

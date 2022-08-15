@@ -17,3 +17,10 @@ model articles {
   title       String
   url         String
 }
+
+model CommunityUrls {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  url         String 
+  email       String?
+  createdAt   DateTime? @default(now())
+}

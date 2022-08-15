@@ -99,7 +99,7 @@ export default function Home() {
           <div className="flex flex-col items-center p-4 text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 fill-current dark:text-violet-400"
+              className="w-8 h-8 fill-current dark:text-violet-400 text-yellow-500"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -116,7 +116,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col items-center p-4 text-center">
             <svg
-              className="w-8 h-8 dark:text-violet-400"
+              className="w-8 h-8 dark:text-violet-400 text-yellow-500"
               xmlns="http://www.w3.org/2000/svg"
               fillRule="evenodd"
               clipRule="evenodd"
@@ -140,7 +140,7 @@ export default function Home() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="w-8 h-8 dark:text-violet-400"
+              className="w-8 h-8 dark:text-violet-400 text-yellow-500"
             >
               <path
                 fillRule="evenodd"

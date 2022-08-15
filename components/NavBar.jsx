@@ -1,5 +1,4 @@
 import React from "react";
-// import ImageBlur from "./ImageBlur";
 import Link from "next/link";
 
 export default function NavBar() {
@@ -9,13 +8,6 @@ export default function NavBar() {
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link href="/">
           <a className="flex items-center">
-            {/* <ImageBlur
-              src="/logo.svg"
-              className="h-6 sm:h-9"
-              width={24}
-              height={24}
-              alt="devnews Logo"
-            /> */}
             <span className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-3xl">
               Dev
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
@@ -29,7 +21,7 @@ export default function NavBar() {
             <a target="_blank">
               <button
                 type="button"
-                className="mt-1 md:mt-0 px-2 py-1 text-violet-400"
+                className="mt-1 md:mt-0 px-2 py-1 text-violet-400 hover:animate-ping hover:underline decoration-wavy underline-offset-4 "
               >
                 Telegram Bot
               </button>
@@ -77,7 +69,7 @@ export default function NavBar() {
             <li>
               <Link href="/">
                 <a
-                  className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600"
+                  className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300"
                   aria-current="page"
                 >
                   Home
@@ -86,15 +78,15 @@ export default function NavBar() {
             </li>
             <li>
               <Link href="/news">
-                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600">
+                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300">
                   News
                 </a>
               </Link>
             </li>
             <li>
-              <Link href="/rss">
-                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:bg-slate-50 dark:hover:bg-slate-600">
-                  Rss
+              <Link href="/sub">
+                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300">
+                  Submit Urls
                 </a>
               </Link>
             </li>
