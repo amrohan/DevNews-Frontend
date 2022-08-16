@@ -1,22 +1,21 @@
-import Image from "next/image";
 import { useState } from "react";
 import cn from "clsx";
 
 export default function ImageBlur(props) {
-  const [isLoading, setLoading] = useState(true);
+  const [blur, setBlur] = useState(true);
 
   return (
-    <Image
+    <img
       {...props}
       alt={props.alt}
       className={cn(
-        props.className,
-        "duration-700 ease-in-out",
-        isLoading
-          ? "grayscale blur-2xl scale-110"
-          : "grayscale-0 blur-0 scale-100"
+        "duration-700 ease-in-out rounded-xl w-full md:w-9/12 lg:w-full",
+        blur ? "grayscale blur-lg" : "grayscale-0 blur-0"
       )}
-      onLoadingComplete={() => setLoading(false)}
+      // check wheater the image is loaded or not
+      onLoad={() => {
+        setBlur(false);
+      }}
     />
   );
 }
