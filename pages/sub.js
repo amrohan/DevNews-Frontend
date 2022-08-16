@@ -75,7 +75,7 @@ export default function SubmitUrl() {
             <h1 className="my-3 text-4xl font-bold">Submit An Article</h1>
             <p className="text-md dark:text-gray-400">
               {
-                "Found an interesting article? Do you want to share it with the community? Enter the article's URL / link below to add it to thefeed."
+                "Found an interesting article? Do you want to share it with the community? Enter the article's URL / link below to add it to the feed."
               }
             </p>
           </div>
