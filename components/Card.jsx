@@ -32,7 +32,13 @@ export default function Card({ art }) {
           </p> */}
             <div className="flex items-center">
               <div className="flex flex-col justify-between ml-4 text-sm">
-                <p className="text-gray-800 dark:text-white">{authorName}</p>
+                {authorName === "Community Post" ? (
+                  <p className="text-yellow-500 font-semibold">
+                    {authorName + " ✨"}
+                  </p>
+                ) : (
+                  <p className="text-gray-800 dark:text-white">{authorName}</p>
+                )}
                 {/* convert createdAt to local string */}
                 <p className="text-gray-600 dark:text-gray-300">
                   {new Date(art.createdAt).toLocaleString("en-US", {
