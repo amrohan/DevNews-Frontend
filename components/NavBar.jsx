@@ -7,16 +7,18 @@ export default function NavBar() {
     // make navbar Glassmorphism
     <nav className=" max-w-5xl realative px-2 sm:px-4 py-2.5 fixed w-full z-40 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-140 ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <Link href="/">
-          <a className="flex items-center">
-            <span className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-3xl">
-              Dev
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
-                News
+        <Slide top>
+          <Link href="/">
+            <a className="flex items-center">
+              <span className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-3xl">
+                Dev
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
+                  News
+                </span>
               </span>
-            </span>
-          </a>
-        </Link>
+            </a>
+          </Link>
+        </Slide>
         <div className="flex md:order-2">
           <Link href="https://t.me/DevBudbot" passHref>
             <a target="_blank">
