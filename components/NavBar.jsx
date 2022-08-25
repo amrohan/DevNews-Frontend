@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Slide from "react-reveal/Slide";
 
 export default function NavBar() {
   return (
@@ -58,39 +59,42 @@ export default function NavBar() {
           className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1 "
           id="navbar-sticky"
         >
-          <ul
-            className="flex flex-col p-4 mt-4 rounded-lg text-center border md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 "
-            type="button"
-            onClick={() => {
-              const navbar = document.getElementById("navbar-sticky");
-              navbar.classList.toggle("hidden");
-            }}
-          >
-            <li>
-              <Link href="/">
-                <a
-                  className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/news">
-                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300">
-                  News
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/sub">
-                <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300">
-                  Submit Urls
-                </a>
-              </Link>
-            </li>
-          </ul>
+          <Slide top cascade>
+            <ul
+              className="flex flex-col p-4 mt-4 rounded-lg text-center md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 "
+              type="button"
+              onClick={() => {
+                const navbar = document.getElementById("navbar-sticky");
+                navbar.classList.toggle("hidden");
+              }}
+            >
+              <li>
+                <Link href="/">
+                  <a
+                    className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300"
+                    aria-current="page"
+                  >
+                    Home
+                  </a>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/news">
+                  <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300">
+                    News
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/sub">
+                  <a className="block py-2 pr-4 pl-3 md:p-0 rounded hover:underline decoration-pink-500 decoration-wavy underline-offset-4 hover:text-xl ease-in-out duration-300">
+                    Submit Urls
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </Slide>
         </div>
       </div>
     </nav>

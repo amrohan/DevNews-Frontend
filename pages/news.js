@@ -91,8 +91,8 @@ export default function News() {
         {/* if data is not loaded then show skeletons else show Card */}
         {feed.map((item) => {
           return (
-            <Slide bottom>
-              <Card key={item.id} art={item} />
+            <Slide bottom key={item.id}>
+              <Card art={item} />
             </Slide>
           );
         })}
