@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function NavBar() {
   return (
     // make navbar Glassmorphism
-    <nav className=" max-w-5xl realative px-2 sm:px-4 py-2.5 fixed w-full z-20 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-140 ">
+    <nav className=" max-w-5xl realative px-2 sm:px-4 py-2.5 fixed w-full z-40 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-140 ">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Link href="/">
           <a className="flex items-center">

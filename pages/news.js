@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import useSWR from "swr";
 import SkeletonCard from "../components/SkeletonCard";
 import Card from "../components/Card";
+import Slide from "react-reveal/Slide";
+import Loader from "../components/Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -64,7 +66,7 @@ export default function News() {
   return (
     <div>
       <div className=" pt-20 h-32 w-full mb-4 max-w-5xl mx-auto md:w-full">
-        <h1 className="text-xl font-semibold w-full pl-8 md:pl-0">
+        <h1 className="text-2xl font-semibold w-full pl-8 md:pl-0 font-mono">
           Latest News
         </h1>
         {show && (
@@ -88,15 +90,20 @@ export default function News() {
       <div className="min-h-[900px] pt-6 gap-6 grid md:px-0 md:grid-cols-2 lg:grid-cols-3 mx-auto max-w-5xl">
         {/* if data is not loaded then show skeletons else show Card */}
         {feed.map((item) => {
-          return <Card key={item.id} art={item} />;
+          return (
+            <Slide bottom>
+              <Card key={item.id} art={item} />
+            </Slide>
+          );
         })}
-
         {!data && (
-          <>
+          <div className="bottom-0 text-center ">
+            <Loader />
+
+            {/* <SkeletonCard />
             <SkeletonCard />
-            <SkeletonCard />
-            <SkeletonCard />
-          </>
+            <SkeletonCard /> */}
+          </div>
         )}
       </div>
     </div>

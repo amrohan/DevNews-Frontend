@@ -7,7 +7,7 @@ export default function Card({ art }) {
   const authorName = art.author.slice(0, 20);
 
   return (
-    <div className="relative dark:bg-zinc-800 shadow-lg rounded-xl h-96 w-80 cursor-pointer mx-auto">
+    <div className="relative dark:bg-zinc-800 shadow-lg rounded-xl h-[365px] w-80 cursor-pointer mx-auto">
       <Link href={art.url} passHref>
         <a
           target="_blank"
