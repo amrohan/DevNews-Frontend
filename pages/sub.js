@@ -7,7 +7,7 @@ import Jello from "react-reveal/Jello";
 import { useUser } from "@auth0/nextjs-auth0";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/Link";
+import Link from "next/link";
 
 export default function SubmitUrl() {
   const { user } = useUser();
