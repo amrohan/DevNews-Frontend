@@ -2,8 +2,15 @@ import { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import Loader from "../components/Loader";
 import Rotate from "react-reveal/Rotate";
+import Slide from "react-reveal/Slide";
+import Jello from "react-reveal/Jello";
+import { useUser } from "@auth0/nextjs-auth0";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/Link";
 
 export default function SubmitUrl() {
+  const { user } = useUser();
   const formRef = useRef();
   const [Loading, setLoading] = useState(false);
 
@@ -61,6 +68,90 @@ export default function SubmitUrl() {
     formData.reset();
   };
 
+  if (!user) {
+    return (
+      <Slide top cascade>
+        <div className="login">
+          <Head>
+            <title>DevNews - Homepage for Devs</title>
+          </Head>
+          <h1 className="text-2xl text-center mb-6 font-semibold">
+            To avoid spam, please login before submitting a URL to the
+            community.
+          </h1>
+          <Image src="/hero.svg" width={250} height={406} alt="login page" />
+          <Link href="api/auth/login">
+            <a>
+              <button type="button" className="pad">
+                Login here
+              </button>
+            </a>
+          </Link>
+          <style jsx>
+            {`
+            .login {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              width: full
+              height: full;
+              color: #17c3b2;
+              padding-top : 60px;
+              padding-bottom : 20px;
+            }
+            
+            .login button {
+              padding: 0.8em 1.8em;
+              border: 2px solid #17c3b2;
+              position: relative;
+              overflow: hidden;
+              background-color: transparent;
+              text-align: center;
+              text-transform: uppercase;
+              font-size: 16px;
+              -webkit-transition: 0.3s;
+              transition: 0.3s;
+              z-index: 1;
+              font-family: inherit;
+              color: #17c3b2;
+            }
+            
+            .login button::before {
+              content: "";
+              width: 0;
+              height: 300%;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%) rotate(45deg);
+              -ms-transform: translate(-50%, -50%) rotate(45deg);
+              transform: translate(-50%, -50%) rotate(45deg);
+              background: #17c3b2;
+              -webkit-transition: 0.5s ease;
+              transition: 0.5s ease;
+              display: block;
+              z-index: -1;
+            }
+            
+            .login button:hover::before {
+              width: 105%;
+            }
+            
+            .login button:hover {
+              color: #111;
+            }
+            
+            .pad {
+              margin-top: 20px;
+            }
+            `}
+          </style>
+        </div>
+      </Slide>
+    );
+  }
+
   return (
     <div className="dark:text-gray-200 dark:bg-zinc-900 w-full">
       <Toaster />
@@ -74,6 +165,12 @@ export default function SubmitUrl() {
         <Rotate top left>
           <div className="w-full flex flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-zinc-900 dark:text-gray-100">
             <div className="mb-8 text-center">
+              <h1 className="text-2xl">
+                Hello 👋,{"\u00a0\u00a0"}
+                <span className="text-yellow-500 font-semibold">
+                  <Jello>{user.name}</Jello>
+                </span>
+              </h1>
               <h1 className="my-3 text-4xl font-bold">Submit An Article</h1>
               <p className="text-md dark:text-gray-400">
                 {

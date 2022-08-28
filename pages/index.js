@@ -49,41 +49,42 @@ export default function Home() {
           content="https://res.cloudinary.com/amrohan/image/upload/v1653377356/Images/uyvcq8rzavq5bc0g3h6u.png"
         />
       </Head>
-      <section className="h-full lg:h-screen">
-        {/* <!--Main--> */}
-        <div className="pt-24 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
-          {/* <!--Left Col--> */}
-          <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
-            <h1 className="my-4 text-3xl md:text-5xl dark:text-white opacity-75 font-bold leading-tight text-center md:text-left">
-              ALL
-              <span className="mr-2 ml-2 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
-                DEVELOPER NEWS
-              </span>
-              IN ONE PLACE
-            </h1>
 
-            <p className=" dark:text-white opacity-60 first-line:leading-normal text-base md:text-2xl mb-8 text-center md:text-left">
+      <section>
+        <div className="container mx-auto flex px-5 pt-24 md:h-screen md:pt-0 md:flex-row flex-col items-center">
+          <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+            <h1 className="title-font sm:text-4xl text-3xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
+              ALL DEVELOPER
+              <br className="hidden lg:inline-block" />
+              NEWS IN ONE PLACE
+            </h1>
+            <p className="mb-8 leading-relaxed">
               Get all of the biggest tech news headlines and articles in one
               place.
             </p>
-            <div className="text-center">
-              <Link href="/news">
-                <a>
-                  <button className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-                    <span className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                      Go to News
-                    </span>
-                  </button>
-                </a>
-              </Link>
+            <div className="flex justify-center">
+              <Slide bottom>
+                <Link href="/news">
+                  <a>
+                    <button className="inline-flex dark:text-white dark:bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-900 rounded text-lg">
+                      News
+                    </button>
+                  </a>
+                </Link>
+                <Link href="https://t.me/DevBudbot" passHref>
+                  <a target="_blank">
+                    <button className="ml-4 inline-flex dark:text-gray-400 dark:bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
+                      Telegram Bot
+                    </button>
+                  </a>
+                </Link>
+              </Slide>
             </div>
           </div>
-
-          {/* <!--Right Col--> */}
-          <div className="w-full xl:w-3/5 p-5 md:p-12 overflow-hidden rounded-lg">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
             <img
               className={cn(
-                "duration-700 ease-in-out rounded-xl w-full md:w-9/12 lg:w-full",
+                "duration-700 ease-in-out rounded-xl w-full md:w-9/12 lg:w-full object-cover object-center",
                 blur ? "grayscale blur-lg" : "grayscale-0 blur-0"
               )}
               src="/per.gif"
@@ -92,6 +93,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <section className="dark:bg-zinc-900 dark:text-gray-100">
         <div className="mx-auto p-4 my-5 space-y-2 text-center">
           <Fade>
