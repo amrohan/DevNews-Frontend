@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     skip: convertedSkipArticles,
     take: covertedNumberOfArticles,
     orderBy: {
-      createdAt: "desc",
+      id: "desc",
     },
   });
   res.status(200).json(articles);

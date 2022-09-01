@@ -79,7 +79,7 @@ export default function SubmitUrl() {
             To avoid spam, please login before submitting a URL to the
             community.
           </h1>
-          <Image src="/hero.svg" width={250} height={406} alt="login page" />
+          <Image src="/log.svg" width={250} height={406} alt="login page" />
           <Link href="api/auth/login">
             <a>
               <button type="button" className="pad">

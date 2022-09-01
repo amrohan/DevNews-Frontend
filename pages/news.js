@@ -11,7 +11,7 @@ export default function News() {
   // setting up the state
   const [skipPage, setSkipPage] = useState(0);
 
-  const { data, error } = useSWR(`/api/feed?take=10&skip=${skipPage}`, fetcher);
+  const { data, error } = useSWR(`/api/feed?take=20&skip=${skipPage}`, fetcher);
 
   const [feed, setFeed] = useState([]);
 
@@ -21,20 +21,20 @@ export default function News() {
     }
   }, [data]);
 
-  const onScroll = () => {
-    if (
-      window.innerHeight + window.scrollY >=
-      document.body.offsetHeight * 0.9
-    ) {
-      // skiping the number of articles that are already in the feed state
-      setSkipPage((prev) => prev + 10);
-    }
-  };
+  // const onScroll = () => {
+  //   if (
+  //     window.innerHeight + window.scrollY >=
+  //     document.body.offsetHeight * 0.9
+  //   ) {
+  //     // skiping the number of articles that are already in the feed state
+  //     // setSkipPage((prev) => skipPage + 20);
+  //   }
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [data]);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", onScroll);
+  //   return () => window.removeEventListener("scroll", onScroll);
+  // }, [data]);
 
   // creating a state to show good morning or good evening
   const [time, setTime] = useState(new Date().getHours());
@@ -96,6 +96,7 @@ export default function News() {
             </Slide>
           );
         })}
+
         {!data && (
           <div className="bottom-0 text-center ">
             <Loader />
@@ -105,6 +106,18 @@ export default function News() {
             <SkeletonCard /> */}
           </div>
         )}
+      </div>
+      <div className="mt-4 w-full grid place-content-center">
+        <button
+          onClick={() => setSkipPage(skipPage + 20)}
+          type="button"
+          className="flex items-center justify-center px-8 py-4 font-bold transition bg-pink-100 border-4 text-black border-black rounded-xl focus:outline-none hover:shadow-none active:bg-pink-50"
+        >
+          Load More
+          <span aria-hidden="true" className="ml-1.5" role="img">
+            🤔
+          </span>
+        </button>
       </div>
     </div>
   );

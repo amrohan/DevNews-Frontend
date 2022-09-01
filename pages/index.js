@@ -66,14 +66,14 @@ export default function Home() {
               <Slide bottom>
                 <Link href="/news">
                   <a>
-                    <button className="inline-flex dark:text-white dark:bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-900 rounded text-lg">
+                    <button className="inline-flex text-white bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-900 rounded text-lg">
                       News
                     </button>
                   </a>
                 </Link>
                 <Link href="https://t.me/DevBudbot" passHref>
                   <a target="_blank">
-                    <button className="ml-4 inline-flex dark:text-gray-400 dark:bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
+                    <button className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
                       Telegram Bot
                     </button>
                   </a>
