@@ -17,6 +17,12 @@ export default function NavBar() {
 
   const { user } = useUser();
   const [profile, setProfile] = useState(false);
+
+  // toggling audio
+  function playAudio(url) {
+    new Audio(url).play();
+  }
+
   return (
     // make navbar Glassmorphism
     <nav className=" max-w-5xl realative px-2 sm:px-4 py-2.5 fixed h-18 w-full z-40 bg-clip-padding backdrop-filter backdrop-blur-lg  bg-opacity-95 ">
@@ -106,9 +112,10 @@ export default function NavBar() {
                 aria-label="Toggle Dark Mode"
                 type="button"
                 className="invisible md:visible mt-1 md:mt-0 w-9 h-9 bg-gray-200 rounded-lg dark:bg-zinc-800 flex items-center justify-center transition-all"
-                onClick={() =>
-                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
-                }
+                onClick={() => {
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark");
+                  playAudio("toggle.mp3");
+                }}
               >
                 {mounted && (
                   <svg
@@ -239,9 +246,10 @@ export default function NavBar() {
                     aria-label="Toggle Dark Mode"
                     type="button"
                     className="mt-1 md:mt-0 w-9 h-9 bg-gray-200 rounded-lg dark:bg-zinc-800 flex items-center justify-center transition-all"
-                    onClick={() =>
-                      setTheme(resolvedTheme === "dark" ? "light" : "dark")
-                    }
+                    onClick={() => {
+                      setTheme(resolvedTheme === "dark" ? "light" : "dark");
+                      playAudio("toggle.mp3");
+                    }}
                   >
                     {mounted && (
                       <svg
