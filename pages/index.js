@@ -73,7 +73,7 @@ export default function Home() {
                 </Link>
                 <Link href="https://t.me/DevBudbot" passHref>
                   <a target="_blank">
-                    <button className="ml-3 md:mt-0 px-2 py-2 border outline border-zinc-800 dark:border-green-500 rounded-md text-zinc-900 dark:text-blue-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4">
+                    <button className="ml-3 md:mt-0 px-2 py-2 border outline border-zinc-800 dark:border-blue-500 rounded-md text-zinc-900 dark:text-blue-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4">
                       Telegram Bot
                     </button>
                   </a>
