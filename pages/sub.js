@@ -75,78 +75,34 @@ export default function SubmitUrl() {
           <Head>
             <title>DevNews - Homepage for Devs</title>
           </Head>
-          <h1 className="text-2xl text-center mb-6 font-semibold">
-            To avoid spam, please login before submitting a URL to the
-            community.
-          </h1>
-          <Image src="/log.svg" width={250} height={406} alt="login page" />
-          <Link href="api/auth/login">
-            <a>
-              <button type="button" className="pad">
-                Login here
-              </button>
-            </a>
-          </Link>
-          <style jsx>
-            {`
-            .login {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              width: full
-              height: full;
-              color: #17c3b2;
-              padding-top : 60px;
-              padding-bottom : 20px;
-            }
-            
-            .login button {
-              padding: 0.8em 1.8em;
-              border: 2px solid #17c3b2;
-              position: relative;
-              overflow: hidden;
-              background-color: transparent;
-              text-align: center;
-              text-transform: uppercase;
-              font-size: 16px;
-              -webkit-transition: 0.3s;
-              transition: 0.3s;
-              z-index: 1;
-              font-family: inherit;
-              color: #17c3b2;
-            }
-            
-            .login button::before {
-              content: "";
-              width: 0;
-              height: 300%;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              -webkit-transform: translate(-50%, -50%) rotate(45deg);
-              -ms-transform: translate(-50%, -50%) rotate(45deg);
-              transform: translate(-50%, -50%) rotate(45deg);
-              background: #17c3b2;
-              -webkit-transition: 0.5s ease;
-              transition: 0.5s ease;
-              display: block;
-              z-index: -1;
-            }
-            
-            .login button:hover::before {
-              width: 105%;
-            }
-            
-            .login button:hover {
-              color: #111;
-            }
-            
-            .pad {
-              margin-top: 20px;
-            }
-            `}
-          </style>
+          <section className="dark:text-gray-400 dark:bg-zinc-900 body-font max-w-5xl mx-auto">
+            <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+              <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 md:mb-0 mb-10">
+                <img
+                  className="object-cover object-center rounded"
+                  alt="hero"
+                  src="/log.svg"
+                />
+              </div>
+              <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-blue-500">
+                  Login Before submitting !
+                  <br className="hidden lg:inline-block" />
+                </h1>
+                <p className="mb-8 leading-relaxed">
+                  Logging in is required to avoid spam and ensure community
+                  safety.
+                </p>
+                <div className="flex justify-center">
+                  <Link href="/api/auth/login">
+                    <button className="inline-flex px-2 py-2 border outline border-zinc-800 dark:border-blue-500 rounded-md text-zinc-900 dark:text-blue-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4">
+                      Login Here
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </Slide>
     );

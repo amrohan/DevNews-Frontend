@@ -100,49 +100,51 @@ export default function NavBar() {
           </Link>
         </Slide>
         <div className="flex md:order-2 gap-3 md:gap-4">
-          <Slide top>
-            <button
-              aria-label="Toggle Dark Mode"
-              type="button"
-              className="invisible md:visible mt-1 md:mt-0 w-9 h-9 bg-gray-200 rounded-lg dark:bg-zinc-800 flex items-center justify-center transition-all"
-              onClick={() =>
-                setTheme(resolvedTheme === "dark" ? "light" : "dark")
-              }
-            >
-              {mounted && (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  className="w-5 h-5 text-gray-800 dark:text-gray-200"
-                >
-                  {resolvedTheme === "dark" ? (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
-                  ) : (
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                    />
-                  )}
-                </svg>
-              )}
-            </button>
-          </Slide>
+          <div className="mt-[3px]">
+            <Slide top>
+              <button
+                aria-label="Toggle Dark Mode"
+                type="button"
+                className="invisible md:visible mt-1 md:mt-0 w-9 h-9 bg-gray-200 rounded-lg dark:bg-zinc-800 flex items-center justify-center transition-all"
+                onClick={() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                }
+              >
+                {mounted && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    className="w-5 h-5 text-gray-800 dark:text-gray-200"
+                  >
+                    {resolvedTheme === "dark" ? (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                      />
+                    ) : (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                      />
+                    )}
+                  </svg>
+                )}
+              </button>
+            </Slide>
+          </div>
 
           <div className="invisible md:visible">
             {user ? (
-              <div className="flex items-center justify-center space-x-4 mr-2 flex-col w-full mt-1">
+              <div className="flex items-center justify-center space-x-4 mr-2 flex-col w-full ">
                 <Image
-                  width={36}
-                  height={36}
+                  width={42}
+                  height={42}
                   onClick={() => {
                     if (profile == false) {
                       setProfile(true);
@@ -150,24 +152,26 @@ export default function NavBar() {
                       setProfile(false);
                     }
                   }}
-                  className="w-8 h-8 rounded-full z-20 cursor-pointer"
+                  className="w-10 h-10 rounded-full z-20 cursor-pointer"
                   src={user.picture}
                   alt="User Profile"
                 />
               </div>
             ) : (
-              <Slide top>
-                <Link href="/api/auth/login">
-                  <a>
-                    <button
-                      type="button"
-                      className="mt-1 md:mt-0 px-2 py-1 border outline-double border-zinc-800 dark:border-violet-500 rounded-md text-zinc-900 dark:text-violet-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4"
-                    >
-                      Login
-                    </button>
-                  </a>
-                </Link>
-              </Slide>
+              <div className="mt-1">
+                <Slide top>
+                  <Link href="/api/auth/login">
+                    <a>
+                      <button
+                        type="button"
+                        className="mt-1 md:mt-0 px-2 py-1 border outline-double border-zinc-800 dark:border-violet-500 rounded-md text-zinc-900 dark:text-violet-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4"
+                      >
+                        Login
+                      </button>
+                    </a>
+                  </Link>
+                </Slide>
+              </div>
             )}
           </div>
           {/* Hamburger Menu */}
@@ -265,35 +269,37 @@ export default function NavBar() {
                       </svg>
                     )}
                   </button>
-                  {user ? (
-                    <div className="flex items-center justify-center space-x-4 mr-2 flex-col w-full mt-1">
-                      <Image
-                        width={36}
-                        height={36}
-                        onClick={() => {
-                          if (profile == false) {
-                            setProfile(true);
-                          } else {
-                            setProfile(false);
-                          }
-                        }}
-                        className="w-8 h-8 rounded-full z-20 cursor-pointer"
-                        src={user.picture}
-                        alt="User Profile"
-                      />
-                    </div>
-                  ) : (
-                    <Link href="/api/auth/login">
-                      <a>
-                        <button
-                          type="button"
-                          className="mt-1 md:mt-0 px-2 py-1 border outline-double border-zinc-800 dark:border-violet-500 rounded-md text-zinc-900 dark:text-violet-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4"
-                        >
-                          Login
-                        </button>
-                      </a>
-                    </Link>
-                  )}
+                  <div>
+                    {user ? (
+                      <div className="flex items-center justify-center space-x-4 mr-2 flex-col w-full">
+                        <Image
+                          width={42}
+                          height={42}
+                          onClick={() => {
+                            if (profile == false) {
+                              setProfile(true);
+                            } else {
+                              setProfile(false);
+                            }
+                          }}
+                          className="w-10 h-10 rounded-full z-20 cursor-pointer"
+                          src={user.picture}
+                          alt="User Profile"
+                        />
+                      </div>
+                    ) : (
+                      <Link href="/api/auth/login">
+                        <a>
+                          <button
+                            type="button"
+                            className="mt-1 md:mt-0 px-2 py-1 border outline-double border-zinc-800 dark:border-violet-500 rounded-md text-zinc-900 dark:text-violet-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4"
+                          >
+                            Login
+                          </button>
+                        </a>
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </li>
             </ul>
