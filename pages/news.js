@@ -107,18 +107,20 @@ export default function News() {
           </div>
         )}
       </div>
-      <div className="mt-4 w-full grid place-content-center">
-        <button
-          onClick={() => setSkipPage(skipPage + 20)}
-          type="button"
-          className="flex items-center justify-center px-8 py-4 font-bold transition bg-pink-100 border-4 text-black border-black rounded-xl focus:outline-none hover:shadow-none active:bg-pink-50"
-        >
-          Load More
-          <span aria-hidden="true" className="ml-1.5" role="img">
-            🤔
-          </span>
-        </button>
-      </div>
+      {data && (
+        <div className="mt-4 w-full grid place-content-center">
+          <button
+            onClick={() => setSkipPage(skipPage + 20)}
+            type="button"
+            className="flex items-center justify-center px-8 py-4 font-bold transition bg-pink-100 border-4 text-black border-black rounded-xl focus:outline-none hover:shadow-none active:bg-pink-50"
+          >
+            Load More
+            <span aria-hidden="true" className="ml-1.5" role="img">
+              🤓
+            </span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
