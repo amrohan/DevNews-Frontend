@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import useSWR from "swr";
-import SkeletonCard from "../components/SkeletonCard";
+// import SkeletonCard from "../components/SkeletonCard";
 import Card from "../components/Card";
 import Slide from "react-reveal/Slide";
+import Fade from "react-reveal/Fade";
+import Wobble from "react-reveal/Wobble";
+
 import Loader from "../components/Loader";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -79,7 +82,7 @@ export default function News() {
       {/* add scroll on top button */}
       <div className="fixed z-30 top-0 right-0 mr-6 mb-6">
         <button
-          className="dark:bg-white h-12 w-12 dark:text-white rounded-full fixed bottom-2 right-4 "
+          className="dark:bg-white h-12 w-12 dark:text-white bg-zinc-500 rounded-full fixed bottom-2 right-4 "
           onClick={() => {
             window.scrollTo(0, 0);
           }}
@@ -109,16 +112,18 @@ export default function News() {
       </div>
       {data && (
         <div className="mt-4 w-full grid place-content-center">
-          <button
-            onClick={() => setSkipPage(skipPage + 20)}
-            type="button"
-            className="flex items-center justify-center px-8 py-4 font-bold transition bg-pink-100 border-4 text-black border-black rounded-xl focus:outline-none hover:shadow-none active:bg-pink-50"
-          >
-            Load More
-            <span aria-hidden="true" className="ml-1.5" role="img">
-              🤓
-            </span>
-          </button>
+          <Wobble>
+            <button
+              onClick={() => setSkipPage(skipPage + 20)}
+              type="button"
+              className="flex items-center justify-center px-8 py-4 font-bold transition bg-pink-100 border-4 text-black border-black rounded-xl focus:outline-none hover:shadow-none active:bg-pink-50"
+            >
+              Load More
+              <span aria-hidden="true" className="ml-1.5" role="img">
+                🤓
+              </span>
+            </button>
+          </Wobble>
         </div>
       )}
     </div>
