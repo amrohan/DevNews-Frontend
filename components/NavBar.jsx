@@ -5,10 +5,12 @@ import Image from "next/image";
 import { useUser } from "@auth0/nextjs-auth0";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import cn from "clsx";
 
 export default function NavBar() {
   const [mounted, setMounted] = useState(false);
   const { resolvedTheme, setTheme } = useTheme();
+  const [opened, setOpened] = useState(false);
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), []);
@@ -89,13 +91,11 @@ export default function NavBar() {
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <Slide top>
           <Link href="/">
-            <a className="flex items-center">
-              <span className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-3xl">
-                Dev
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
-                  News
-                </span>
-              </span>
+            <a
+              id="header"
+              className="ml-2 md:ml-0 flex items-center font-ubuntu font-semibold text-2xl text-yellow-500"
+            >
+              DevNews
             </a>
           </Link>
         </Slide>
@@ -104,7 +104,7 @@ export default function NavBar() {
             <button
               aria-label="Toggle Dark Mode"
               type="button"
-              className="mt-1 md:mt-0 w-9 h-9 bg-gray-200 rounded-lg dark:bg-zinc-800 flex items-center justify-center transition-all"
+              className="invisible md:visible mt-1 md:mt-0 w-9 h-9 bg-gray-200 rounded-lg dark:bg-zinc-800 flex items-center justify-center transition-all"
               onClick={() =>
                 setTheme(resolvedTheme === "dark" ? "light" : "dark")
               }
@@ -137,7 +137,7 @@ export default function NavBar() {
             </button>
           </Slide>
 
-          <div>
+          <div className="invisible md:visible">
             {user ? (
               <div className="flex items-center justify-center space-x-4 mr-2 flex-col w-full mt-1">
                 <Image
@@ -170,51 +170,44 @@ export default function NavBar() {
               </Slide>
             )}
           </div>
-
-          <button
-            data-collapse-toggle="navbar-sticky"
+          {/* Hamburger Menu */}
+          <div
             type="button"
-            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-sticky"
-            aria-expanded="false"
             onClick={() => {
-              const navbar = document.getElementById("navbar-sticky");
-              navbar.classList.toggle("hidden");
+              {
+                opened ? setOpened(false) : setOpened(true);
+
+                const navbar = document.getElementById("navbar-sticky");
+                navbar.classList.toggle("hidden");
+              }
             }}
+            className={cn(`tham tham-e-squeeze tham-w-6 mt-3 md:hidden`, {
+              "tham-active": opened,
+            })}
           >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-6 h-6"
-              aria-hidden="true"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
+            <div className="tham-box">
+              <div className="tham-inner dark:bg-gray-100 ml-[-20px]" />
+            </div>
+          </div>
         </div>
         <div
           className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1 "
           id="navbar-sticky"
         >
-          <Slide top cascade>
+          <Slide left cascade>
             <ul
-              className="gap-y-2 items-center flex flex-col p-4 mt-4 rounded-lg text-center md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 "
+              className="gap-y-6 ml-2 md:ml-0 md:gap-y-2  grid place-content-start mt-24 p-4 rounded-lg text-left w-full h-screen md:items-center md:flex md:h-full md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 "
               type="button"
               onClick={() => {
                 const navbar = document.getElementById("navbar-sticky");
                 navbar.classList.toggle("hidden");
+                setOpened(false);
               }}
             >
-              <li className="w-24 hover:underline decoration-wavy decoration-pink-500 underline-offset-2 ">
+              <li className="md:w-24 hover:underline decoration-wavy decoration-pink-500 underline-offset-2 ">
                 <Link href="/">
                   <a
-                    className="text-base font-semibold dark:text-gray-300 hover:text-2xl ease-in-out duration-300"
+                    className="text-xl md:text-base font-semibold dark:text-slate-50 hover:text-2xl ease-in-out duration-300"
                     aria-current="page"
                   >
                     Home
@@ -222,19 +215,86 @@ export default function NavBar() {
                 </Link>
               </li>
 
-              <li className="w-24 hover:underline decoration-wavy decoration-pink-500 underline-offset-2">
+              <li className="md:w-24 hover:underline decoration-wavy decoration-pink-500 underline-offset-2">
                 <Link href="/news">
-                  <a className="text-base font-semibold dark:text-gray-300 ease-in-out duration-300 hover:text-2xl">
+                  <a className="text-xl md:text-base font-semibold dark:text-slate-100 ease-in-out duration-300 hover:text-2xl">
                     News
                   </a>
                 </Link>
               </li>
-              <li className="w-24 hover:underline decoration-wavy decoration-pink-500 underline-offset-2">
+              <li className="md:w-24 hover:underline decoration-wavy decoration-pink-500 underline-offset-2">
                 <Link href="/sub">
-                  <a className="text-base font-semibold dark:text-gray-300 ease-in-out duration-300">
+                  <a className="text-xl md:text-base font-semibold dark:text-slate-100 ease-in-out duration-300">
                     Submit Urls
                   </a>
                 </Link>
+              </li>
+              <li className="md:hidden">
+                <div className="flex mt-6 gap-5">
+                  <button
+                    aria-label="Toggle Dark Mode"
+                    type="button"
+                    className="mt-1 md:mt-0 w-9 h-9 bg-gray-200 rounded-lg dark:bg-zinc-800 flex items-center justify-center transition-all"
+                    onClick={() =>
+                      setTheme(resolvedTheme === "dark" ? "light" : "dark")
+                    }
+                  >
+                    {mounted && (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        className="w-5 h-5 text-gray-800 dark:text-slate-100"
+                      >
+                        {resolvedTheme === "dark" ? (
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                          />
+                        ) : (
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                          />
+                        )}
+                      </svg>
+                    )}
+                  </button>
+                  {user ? (
+                    <div className="flex items-center justify-center space-x-4 mr-2 flex-col w-full mt-1">
+                      <Image
+                        width={36}
+                        height={36}
+                        onClick={() => {
+                          if (profile == false) {
+                            setProfile(true);
+                          } else {
+                            setProfile(false);
+                          }
+                        }}
+                        className="w-8 h-8 rounded-full z-20 cursor-pointer"
+                        src={user.picture}
+                        alt="User Profile"
+                      />
+                    </div>
+                  ) : (
+                    <Link href="/api/auth/login">
+                      <a>
+                        <button
+                          type="button"
+                          className="mt-1 md:mt-0 px-2 py-1 border outline-double border-zinc-800 dark:border-violet-500 rounded-md text-zinc-900 dark:text-violet-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4"
+                        >
+                          Login
+                        </button>
+                      </a>
+                    </Link>
+                  )}
+                </div>
               </li>
             </ul>
           </Slide>

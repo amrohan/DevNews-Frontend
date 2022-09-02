@@ -53,7 +53,7 @@ export default function Home() {
       <section>
         <div className="container mx-auto flex px-5 pt-24 md:h-screen md:pt-0 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-            <h1 className="title-font sm:text-4xl text-3xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
+            <h1 className="font-semibold sm:text-4xl text-3xl mb-4 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-pink-500 to-purple-500">
               ALL DEVELOPER&nbsp;
               <br className="hidden lg:inline-block" />
               NEWS IN ONE PLACE
@@ -66,14 +66,14 @@ export default function Home() {
               <Slide bottom>
                 <Link href="/news">
                   <a>
-                    <button className="inline-flex text-white bg-indigo-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-900 rounded text-lg">
+                    <button className="md:mt-0 px-8 py-2 border outline border-zinc-800 dark:border-green-500 rounded-md text-zinc-900 dark:text-green-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4">
                       News
                     </button>
                   </a>
                 </Link>
                 <Link href="https://t.me/DevBudbot" passHref>
                   <a target="_blank">
-                    <button className="ml-4 inline-flex text-gray-400 bg-gray-800 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg">
+                    <button className="ml-3 md:mt-0 px-2 py-2 border outline border-zinc-800 dark:border-green-500 rounded-md text-zinc-900 dark:text-blue-400 hover:animate-pulse hover:underline decoration-wavy underline-offset-4">
                       Telegram Bot
                     </button>
                   </a>
@@ -94,10 +94,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="dark:bg-zinc-900 dark:text-gray-100">
+      <section className="dark:bg-zinc-900 dark:text-gray-100 text-gray-900">
         <div className="mx-auto p-4 my-5 space-y-2 text-center">
           <Fade>
-            <h2 className="text-3xl md:text-4xl font-bold">
+            <h2 className="text-3xl md:text-4xl font-semibold">
               Built To Save Time For Every Developer
             </h2>
           </Fade>

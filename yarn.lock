@@ -2034,11 +2034,6 @@ react-hot-toast@^2.3.0:
   dependencies:
     goober "^2.1.10"
 
-react-intersection-observer@^9.4.0:
-  version "9.4.0"
-  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-9.4.0.tgz#f6b6e616e625f9bf255857c5cba9dbf7b1825ec7"
-  integrity sha512-v0403CmomOVlzhqFXlzOxg0ziLcVq8mfbP0AwAcEQWgZmR2OulOT79Ikznw4UlB3N+jlUYqLMe4SDHUOyp0t2A==
-
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -2275,6 +2270,11 @@ swr@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/swr/-/swr-1.3.0.tgz#c6531866a35b4db37b38b72c45a63171faf9f4e8"
   integrity sha512-dkghQrOl2ORX9HYrMDtPa7LTVHJjCTeZoB1dqTbnnEDlSvN8JEKpYIYurDfvbQFUUS8Cg8PceFVZNkW0KNNYPw==
+
+tailwind-hamburgers@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/tailwind-hamburgers/-/tailwind-hamburgers-1.2.2.tgz#453c7cd8231d8bd7e9919e2283ce8c78e4a73db2"
+  integrity sha512-+waFl5H32B7YBOZZADalyxWYFq5qKg2dsqAyqTyMSlwbYFuwD1jhbtw8wSSAK+kU5HpnEhQJV4/V2Gl5cdop4g==
 
 tailwindcss@^3.1.7:
   version "3.1.7"
