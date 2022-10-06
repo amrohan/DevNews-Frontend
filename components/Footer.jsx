@@ -80,12 +80,12 @@ export default function Footer() {
             </h2>
             <ul className="text-gray-600 dark:text-gray-400">
               <li className="mb-4">
-                <a href="#" className="hover:underline">
+                <a href="https://toc.pages.dev/" className="hover:underline">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="https://toc.pages.dev/" className="hover:underline">
                   Terms &amp; Conditions
                 </a>
               </li>
