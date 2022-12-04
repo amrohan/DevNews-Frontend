@@ -1,34 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Dev News](https://devnews.gq)
 
-## Getting Started
+![](https://res.cloudinary.com/amrohan/image/upload/v1670137339/Images/g3xq0iqxiqprdkhxhstl.jpg)
 
-First, run the development server:
+The Devnews is a great platform for keeping up with all the latest news in the tech world. Not only does it provide a central place to find information, but it also has a Telegram bot that can deliver news directly to your chat. This makes it easy to stay up-to-date with current upcoming news or articles.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The next js 13 prisma and mongo db were used to build this project's database.
+The project scrapes numerous websites, including Medium, dev.to, hashnode, the edge, TechCrunch, and many others, to collect data from them.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Check the live demo of website 
+**[Devnews](https://DevNews.gq)**
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Important links regarding Projects 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+**You can check backend code here**
+[Backend of Devnews](https://github.com/amrohan/DevNews-Backend)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+**Telegram bot code**
+[Here](https://github.com/amrohan/Dev-News-Bot)
 
-## Learn More
+### Contact 
+If you have any questions, please feel free to ask me. I will be happy to help in any way I can. Thank you for your interest.
 
-To learn more about Next.js, take a look at the following resources:
+[E-mail](mailto:amrohan@duck.com)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Telegram](https://t.me/amrohan)
