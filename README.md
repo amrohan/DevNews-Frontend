@@ -1,4 +1,4 @@
-# [Dev News](https://devnews.gq)
+# [Dev News](https://devxnews.netlify.app/)
 
 ![](https://res.cloudinary.com/amrohan/image/upload/v1670137339/Images/g3xq0iqxiqprdkhxhstl.jpg)
 
@@ -8,7 +8,7 @@ The next js 13 prisma and mongo db were used to build this project's database.
 The project scrapes numerous websites, including Medium, dev.to, hashnode, the edge, TechCrunch, and many others, to collect data from them.
 
 ### Check the live demo of website 
-**[Devnews](https://DevNews.gq)**
+**[Devnews](https://devxnews.netlify.app/)**
 
 ### Important links regarding Projects 
 
